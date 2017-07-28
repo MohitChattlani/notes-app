@@ -5,12 +5,17 @@ import {Notes} from '/imports/api/notes';
 import PropTypes from 'prop-types';
 import NoteListHeader from './NoteListHeader';
 import NoteListItem from './NoteListItem';
+import NoteListEmptyItem from './NoteListEmptyItem';
 
 const renderNotes=(notes)=> {
-  console.log(notes);
-  return notes.map((note)=>{
-    return <NoteListItem key={note._id} note={note}/>;
-  });
+  if (notes.length===0) {
+    return <NoteListEmptyItem/>;
+  }
+  else {
+    return notes.map((note)=>{
+      return <NoteListItem key={note._id} note={note}/>;
+    });
+  }
 };
 
 export const NoteList=(props)=>{
