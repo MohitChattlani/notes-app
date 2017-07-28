@@ -1,7 +1,8 @@
 import {Meteor} from 'meteor/meteor';
-import {History} from '/client/main';
 import React from 'react';
 import PrivateHeader from './PrivateHeader';
+import {History} from '/imports/routes/routes';
+import NoteList from './NoteList.js';
 
 export default class DashBoard extends React.Component{
   componentWillMount(){
@@ -15,7 +16,7 @@ export default class DashBoard extends React.Component{
       <div>
         <PrivateHeader title="Dashboard"/>
         <div className="page-content">
-          <p>DashBoard</p>
+          <NoteList/>
         </div>
       </div>
     );
