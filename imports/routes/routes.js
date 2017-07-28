@@ -27,6 +27,7 @@ export const routes=(
       <Route exact path="/" component={Login} />
       <Route path="/signup" component={Signup} />
       <Route path="/dashboard" component={DashBoard}/>
+      <Route path="/dashboard/:id" component={DashBoard}/>
       <Route path="*" component={NotFound}/>
     </Switch>
   </Router>
