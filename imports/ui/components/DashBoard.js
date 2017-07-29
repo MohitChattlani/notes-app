@@ -4,7 +4,7 @@ import PrivateHeader from './PrivateHeader';
 import {History} from '/imports/routes/routes';
 import NoteList from './NoteList.js';
 import {Session} from 'meteor/session';
-
+import Editor from './Editor';
 export default class DashBoard extends React.Component{
   componentWillMount(nextState){
     if (!Meteor.userId())
@@ -21,6 +21,7 @@ export default class DashBoard extends React.Component{
         <PrivateHeader title="Dashboard"/>
         <div className="page-content">
           <NoteList/>
+          <Editor/>
         </div>
       </div>
     );
