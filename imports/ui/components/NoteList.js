@@ -6,6 +6,7 @@ import PropTypes from 'prop-types';
 import NoteListHeader from './NoteListHeader';
 import NoteListItem from './NoteListItem';
 import NoteListEmptyItem from './NoteListEmptyItem';
+import {Session} from 'meteor/session';
 
 const renderNotes=(notes)=> {
   if (notes.length===0) {
@@ -32,8 +33,18 @@ NoteList.propTypes={
 };
 
 export default createContainer(()=>{
+  const selectedNoteId=Session.get('selectedNoteId');
   Meteor.subscribe('notes');
   return {
-    notes: Notes.find().fetch()
+    notes: Notes.find().fetch().map((note)=>{
+      let selected=false;
+      if (note._id===selectedNoteId) {
+        selected=true;
+      }
+      return {
+        ...note,
+        selected
+      };
+    })
   };
 },NoteList);
