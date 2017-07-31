@@ -15,6 +15,16 @@ export default class DashBoard extends React.Component{
       Session.set('selectedNoteId',this.props.location.pathname.slice(11));
     }
   }
+  componentWillUpdate(){
+    if (!Meteor.userId())
+    {
+      History.replace('/');
+    }
+    componentWillUnmount()
+    {
+      Session.set('selectedNoteId',undefined);
+    }
+  }
   render(){
     return (
       <div>
