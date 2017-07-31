@@ -20,10 +20,10 @@ export default class DashBoard extends React.Component{
     {
       History.replace('/');
     }
-    componentWillUnmount()
-    {
-      Session.set('selectedNoteId',undefined);
-    }
+  }
+  componentWillUnmount()
+  {
+    Session.set('selectedNoteId',undefined);
   }
   render(){
     return (
