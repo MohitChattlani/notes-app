@@ -6,11 +6,24 @@ import {Meteor} from 'meteor/meteor';
 import PropTypes from 'prop-types';
 
 export class Editor extends React.Component{
+  handleBodyChange(e)
+  {
+    this.props.call('notes.update',this.props.note._id,{
+      body:e.target.value
+    });
+  }
+  handleTitleChange(e){
+    this.props.call('notes.update',this.props.note._id,{
+      title:e.target.value
+    });
+  }
   render(){
       if (this.props.note) {
         return (
           <div>
-            <p>Note found</p>
+            <input placeholder="Untitled" value={this.props.note.title} onChange={this.handleTitleChange.bind(this)}/>
+            <textarea placeholder="Your note here" value={this.props.note.body} onChange={this.handleBodyChange.bind(this)}/>
+            <button>Delete note</button>
           </div>
         );
       }
@@ -29,6 +42,7 @@ export default createContainer(()=>{
   Meteor.subscribe('notes');
   return {
     selectedNoteId,
-    note:Notes.findOne({_id:selectedNoteId})
+    note:Notes.findOne({_id:selectedNoteId}),
+    call:Meteor.call
   };
 },Editor);

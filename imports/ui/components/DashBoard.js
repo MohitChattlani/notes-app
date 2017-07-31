@@ -6,7 +6,7 @@ import NoteList from './NoteList.js';
 import {Session} from 'meteor/session';
 import Editor from './Editor';
 export default class DashBoard extends React.Component{
-  componentWillMount(nextState){
+  componentWillMount(){
     if (!Meteor.userId())
     {
       History.replace('/');
