@@ -11,7 +11,7 @@ body
 {
   background-color: $body-bg-color;
   font-size: $base-font-size;
-  font-family: Helvetica,Arial,sans-serif;
+  font-family: $body-default-family;
   color: $body-default-color;
 }
 h1{
@@ -28,8 +28,10 @@ a{
 p{
   margin-bottom: $space;
 }
-input[type=text] ,input[type=email],input[type=password]{
+input[type=text] ,input[type=email],input[type=password],textarea{
   border: 1px solid $input-border;
+  color: $body-default-color;
+  font-family: $body-default-family;
   font-size: $base-font-size;
   margin-bottom: $space;
   padding: $input-spacing;

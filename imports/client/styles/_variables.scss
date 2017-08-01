@@ -3,9 +3,12 @@ $brand-primary:#3978b1;
 $grey:#dddddd;
 $light-grey:#f9f9f9;
 $dark-grey:#777777;
+
 //spaces
 $space:1.4rem;
 $site-max-width:100rem;
+$large-space:2.8rem;
+
 //header
 $header-bg:$brand-primary;
 $header-color:white;
@@ -14,10 +17,11 @@ $header-height:6rem;
 
 $body-bg-color:#fafafa;
 $body-default-color:#333333;
+$body-default-family: Helvetica,Arial,sans-serif;
 
 //font-sizes
 $base-font-size:1.4rem;
-$big-font-size:1.8rem;
+$big-font-size:2.2rem;
 //Form inputs
 $input-border:$grey;
 $input-spacing:1rem;
