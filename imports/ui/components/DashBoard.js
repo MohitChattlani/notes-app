@@ -30,8 +30,12 @@ export default class DashBoard extends React.Component{
       <div>
         <PrivateHeader title="Dashboard"/>
         <div className="page-content">
-          <NoteList/>
-          <Editor/>
+          <div className="page-content__sidebar">
+            <NoteList/>
+          </div>
+          <div className="page-content__main">
+            <Editor/>
+          </div>
         </div>
       </div>
     );

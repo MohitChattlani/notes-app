@@ -1,14 +1,19 @@
 //Colors
-$brand-primary:#5b4681;
+$brand-primary:#3978b1;
 $grey:#dddddd;
 $light-grey:#f9f9f9;
 $dark-grey:#777777;
 //spaces
 $space:1.4rem;
-$site-max-width:50rem;
+$site-max-width:100rem;
 //header
 $header-bg:$brand-primary;
 $header-color:white;
+$header-height:6rem;
+//body
+
+$body-bg-color:#fafafa;
+$body-default-color:#333333;
 
 //font-sizes
 $base-font-size:1.4rem;
@@ -20,7 +25,7 @@ $input-spacing:1rem;
 //boxed-view
 $boxed-view-overlay-bg:$grey;
 $boxed-view-bg: white;
-
+$boxed-view-border:$grey;
 //buttons
 $button-bg:$brand-primary;
 $button-color:white;
@@ -33,3 +38,8 @@ $button--secondary-border:$grey;
 $item-bg:$light-grey;
 $item-border:darken($item-bg,8%);
 $item-message-color:$dark-grey;
+
+//page-content
+$page-content-sidebar-width:30rem;
+$page-content-main-width: calc(#{$site-max-width} - #{$page-content-sidebar-width});
+$page-content-height: calc(100vh - #{$header-height});
