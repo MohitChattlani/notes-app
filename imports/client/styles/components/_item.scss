@@ -3,6 +3,7 @@
   background-color: white;
   border: 1px solid $grey;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
   width: 100%;
 }
 

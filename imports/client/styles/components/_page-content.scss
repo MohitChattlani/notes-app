@@ -17,6 +17,7 @@
   left: -100vw;
   top: $header-height;
   bottom: 0;
+  z-index: 1;
   @include Desktop{
     display: flex;
     margin-right: $large-space;
