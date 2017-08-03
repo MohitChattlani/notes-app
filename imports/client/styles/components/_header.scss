@@ -14,6 +14,15 @@
   margin: 0 auto;
   padding: $space;
 }
+.header__nav-toggle{
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  @include Desktop{
+    display: none;
+  };
+}
+
 .header__title
 {
   margin: 0;

@@ -14,11 +14,18 @@ Tracker.autorun(()=>{
 Tracker.autorun(()=>{
   const noteid= Session.get('selectedNoteId');
   if (noteid) {
+    Session.set('isNavOpen',false);
     History.replace(`/dashboard/${noteid}`);
   }
 });
 
+Tracker.autorun(()=>{
+  const isNavOpen=Session.get('isNavOpen');
+  document.body.classList.toggle('is-nav-open',isNavOpen);
+});
+
 Meteor.startup(()=>{
   Session.set('selectedNoteId',undefined);
+  Session.set('isNavOpen',false);
   ReactDOM.render(routes,document.getElementById('app'));
 });
