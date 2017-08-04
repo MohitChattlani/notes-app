@@ -5,13 +5,15 @@ import {Notes} from '/imports/api/notes';
 import {Meteor} from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import {History} from '/imports/routes/routes';
+import Modal from 'react-modal';
 
 export class Editor extends React.Component{
   constructor(props){
     super(props);
     this.state={
       title:'',
-      body:''
+      body:'',
+      isOpen:false
     };
   }
   handleBodyChange(e)
@@ -29,11 +31,6 @@ export class Editor extends React.Component{
     });
     this.props.call('notes.update',this.props.note._id,{ title });
   }
-  removeNote(){
-    this.props.call('notes.remove',this.props.note._id);
-    Session.set('selectedNoteId',undefined);
-    this.props.History.push('/dashboard');
-  }
   componentDidUpdate(prevProps,prevState){
     currentNoteId=this.props.note ? this.props.note._id : undefined;
     prevNoteId=prevProps.note ? prevProps.note._id : undefined;
@@ -44,6 +41,24 @@ export class Editor extends React.Component{
       })
     }
   }
+  confirmRemoveNote(){
+    this.setState({
+      isOpen:true
+    });
+  }
+  cancelDelete(){
+    this.setState({
+      isOpen:false
+    });
+  }
+  confirmDelete(){
+    this.props.call('notes.remove',this.props.note._id);
+    Session.set('selectedNoteId',undefined);
+    this.props.History.push('/dashboard');
+    this.setState({
+      isOpen:false
+    });
+  }
   render(){
       if (this.props.note) {
         return (
@@ -51,8 +66,20 @@ export class Editor extends React.Component{
             <input className="editor__title" placeholder="Untitled" value={this.state.title} onChange={this.handleTitleChange.bind(this)}/>
             <textarea className="editor__body" placeholder="Your note here" value={this.state.body} onChange={this.handleBodyChange.bind(this)}/>
             <div>
-              <button className="button button--secondary" onClick={this.removeNote.bind(this)}>Delete note</button>
+              <button className="button button--secondary" onClick={this.confirmRemoveNote.bind(this)}>Delete note</button>
             </div>
+            <Modal
+              isOpen={this.state.isOpen}
+              className="boxed-view__box"
+              contentLabel="Confirm Delete"
+              onRequestClose={this.cancelDelete.bind(this)}
+              overlayClassName="boxed-view boxed-view--modal"
+              >
+                <div className="boxed-view__form">
+                  <button className="button" onClick={this.confirmDelete.bind(this)}>Confirm</button>
+                  <button className="button button--secondary" onClick={this.cancelDelete.bind(this)}>Cancel</button>
+                </div>
+              </Modal>
           </div>
         );
       }
