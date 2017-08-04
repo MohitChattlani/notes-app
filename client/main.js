@@ -24,8 +24,14 @@ Tracker.autorun(()=>{
   document.body.classList.toggle('is-nav-open',isNavOpen);
 });
 
+Tracker.autorun(()=>{
+  const confirmDelete=Session.get('confirmDelete');
+  document.body.classList.toggle('confirm-delete',confirmDelete);
+});
+
 Meteor.startup(()=>{
   Session.set('selectedNoteId',undefined);
   Session.set('isNavOpen',false);
+  Session.set('confirmDelete',false);
   ReactDOM.render(routes,document.getElementById('app'));
 });

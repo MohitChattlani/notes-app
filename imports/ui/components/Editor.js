@@ -42,11 +42,13 @@ export class Editor extends React.Component{
     }
   }
   confirmRemoveNote(){
+    Session.set('confirmDelete',true);
     this.setState({
       isOpen:true
     });
   }
   cancelDelete(){
+    Session.set('confirmDelete',false);
     this.setState({
       isOpen:false
     });
@@ -55,9 +57,7 @@ export class Editor extends React.Component{
     this.props.call('notes.remove',this.props.note._id);
     Session.set('selectedNoteId',undefined);
     this.props.History.push('/dashboard');
-    this.setState({
-      isOpen:false
-    });
+    this.cancelDelete();
   }
   render(){
       if (this.props.note) {
