@@ -51,7 +51,7 @@ export class NoteList extends React.Component {
       <div className="item-list">
         <div className="item-list__header">
           <NoteListHeader/>
-          <input placeholder="Search" ref="input" type="text" value={this.state.query} onChange={this.changeQuery.bind(this)} />
+          <input placeholder="Search notes" ref="input" type="text" value={this.state.query} onChange={this.changeQuery.bind(this)} />
         </div>
         {this.renderNotes()}
       </div>
