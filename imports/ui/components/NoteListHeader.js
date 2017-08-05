@@ -4,19 +4,19 @@ import {Meteor} from 'meteor/meteor';
 import PropTypes from 'prop-types';
 import {Session} from 'meteor/session';
 
-export const NoteListHeader=(props)=>{
-  return (
-    <div className="item-list__header">
-      <button className="button" onClick={()=>{
-        props.meteorcall('notes.insert',(err,res)=>{
-          if (res) {
-            props.Session.set('selectedNoteId',res);
-          }
-        });
-      }}>Create Note</button>
-    </div>
-  );
-};
+export class NoteListHeader extends React.Component{
+  render(){
+    return (
+        <button className="button" onClick={()=>{
+          this.props.meteorcall('notes.insert',(err,res)=>{
+            if (res) {
+              this.props.Session.set('selectedNoteId',res);
+            }
+          });
+        }}>Create Note</button>
+    );
+  }
+}
 
 NoteListHeader.propTypes={
   meteorcall:PropTypes.func.isRequired,

@@ -8,25 +8,56 @@ import NoteListItem from './NoteListItem';
 import NoteListEmptyItem from './NoteListEmptyItem';
 import {Session} from 'meteor/session';
 
-const renderNotes=(notes)=> {
-  if (notes.length===0) {
-    return <NoteListEmptyItem/>;
+export class NoteList extends React.Component {
+  constructor(props){
+    super(props);
+    this.state={
+      query: ""
+    };
   }
-  else {
-    return notes.map((note)=>{
-      return <NoteListItem key={note._id} note={note}/>;
+  changeQuery(e){
+    this.setState({
+      query:e.target.value
     });
   }
-};
-
-export const NoteList=(props)=>{
-  return (
-    <div className="item-list">
-      <NoteListHeader/>
-      {renderNotes(props.notes)}
-    </div>
-  );
-};
+  renderNotes() {
+    if (this.props.notes.length===0) {
+      return <NoteListEmptyItem/>;
+    }
+    else {
+      let input=this.refs.input.value;
+      let re = new RegExp(`${input}`, 'i');
+      let undef_notes=0;
+      let mod_notes=this.props.notes.map((note)=>{
+        if (re.test(note.title)) {
+          return note;
+        }
+        else {
+          undef_notes++;
+        }
+      });
+      if (undef_notes===mod_notes.length) {
+        return <p className="empty-item">Sorry, no note found.</p>;
+      }
+      return mod_notes.map((note)=>{
+          if (note) {
+            return <NoteListItem key={note._id} note={note}/>;
+          }
+      });
+    }
+  }
+  render(){
+    return (
+      <div className="item-list">
+        <div className="item-list__header">
+          <NoteListHeader/>
+          <input placeholder="Search" ref="input" type="text" value={this.state.query} onChange={this.changeQuery.bind(this)} />
+        </div>
+        {this.renderNotes()}
+      </div>
+    );
+  }
+}
 NoteList.propTypes={
   notes: PropTypes.array.isRequired
 };
