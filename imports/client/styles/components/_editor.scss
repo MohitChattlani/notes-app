@@ -15,13 +15,18 @@
   padding: $input-spacing;
 }
 .editor__body{
-  flex-grow: 1;
   font-weight: 300;
+  flex-grow: 0;
+  height: 40rem;
   margin-bottom: $large-space;
   outline: none;
   padding: $input-spacing;
+  position: static;
   resize: none;
   -webkit-overflow-scrolling: touch;
+  @include Desktop{
+    flex-grow: 1;
+  };
 }
 .editor__message{
   text-align: center;
