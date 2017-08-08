@@ -76,7 +76,7 @@ export class Editor extends React.Component{
               overlayClassName="boxed-view boxed-view--modal"
               >
                 <div className="boxed-view__form">
-                  <button className="button" onClick={this.confirmDelete.bind(this)}>Confirm</button>
+                  <button className="button button--modal" onClick={this.confirmDelete.bind(this)}>Confirm</button>
                   <button className="button button--secondary" onClick={this.cancelDelete.bind(this)}>Cancel</button>
                 </div>
               </Modal>

@@ -7,13 +7,14 @@
   font-size: $base-font-size;
   padding: $input-spacing;
   text-transform: uppercase;
+}
+.button--modal{
   margin-bottom: $space;
 }
 .button--secondary{
   background-color:$button--secondary-bg;
   border: 1px solid $button--secondary-border;
   color: $button--secondary-color;
-  display: none;
 }
 .button--link{
   display: inline-block;

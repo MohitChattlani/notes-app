@@ -10,15 +10,15 @@
   border: none;
   border-bottom: 2px solid $grey;
   font-size: $big-font-size;
-  margin-bottom: $large-space;
+  margin-bottom: $space;
   outline: none;
   padding: $input-spacing;
 }
 .editor__body{
   font-weight: 300;
   flex-grow: 0;
-  height: 20rem;
-  margin-bottom: $large-space;
+  height: 40rem;
+  margin-bottom: $space;
   outline: none;
   padding: $input-spacing;
   position: static;
