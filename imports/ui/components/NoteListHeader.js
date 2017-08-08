@@ -7,7 +7,7 @@ import {Session} from 'meteor/session';
 export class NoteListHeader extends React.Component{
   render(){
     return (
-        <button className="button" onClick={()=>{
+        <button className="button button--space" onClick={()=>{
           this.props.meteorcall('notes.insert',(err,res)=>{
             if (res) {
               this.props.Session.set('selectedNoteId',res);
