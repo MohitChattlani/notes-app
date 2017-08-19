@@ -9,7 +9,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 export const History=createBrowserHistory();
 
 const unAuthenticatedPages=['/','/signup'];  //pages person cannot visit if he is authenticated
-const AuthenticatedPages=['/dashboard'];    //pages person can visit if he is authenticated
+const AuthenticatedPages=['/dashboard','/changePassword'];    //pages person can visit if he is authenticated
 
 export const onAuthChange=(isAuthenticated)=>{
   const pathname=History.location.pathname;
