@@ -4,6 +4,15 @@ import {Meteor} from 'meteor/meteor';
 import {createContainer} from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import {History} from '/imports/routes/routes';
+import {Session} from 'meteor/session';
+
+let global_token;
+
+Accounts.onResetPasswordLink((token,done)=>{
+  if (token) {
+    global_token=token;
+  }
+});
 
 export class Login extends React.Component {
   constructor(props){
@@ -17,6 +26,10 @@ export class Login extends React.Component {
     if (Meteor.userId())
     {
       History.replace('/dashboard');
+    }
+    if (global_token) {
+      Session.set('global_token',global_token);
+      History.replace('/resetpassword');
     }
   }
   formsubmit(e)
@@ -48,7 +61,8 @@ export class Login extends React.Component {
             <input type="password" ref="password" name="password" placeholder="Password"/>
             <button type="Submit" className="button button--space">Login</button>
           </form>
-          <Link to="/signup">Need an account?</Link>
+          <Link to="/signup">Need an account?</Link><br/>
+          <Link to="/forgotpassword">Forgot password?</Link>
         </div>
       </div>
     );

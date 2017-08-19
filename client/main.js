@@ -30,6 +30,7 @@ Tracker.autorun(()=>{
 });
 
 Meteor.startup(()=>{
+  Session.set('global_token',undefined);
   Session.set('selectedNoteId',undefined);
   Session.set('isNavOpen',false);
   Session.set('confirmDelete',false);

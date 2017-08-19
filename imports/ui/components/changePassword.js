@@ -34,7 +34,6 @@ export default class changePassword extends React.Component{
         }
         else {
           this.setState({status:"Password Changed"});
-          console.log("success");
         }
       });
     }
