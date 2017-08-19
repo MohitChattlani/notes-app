@@ -9,7 +9,7 @@ import createBrowserHistory from 'history/createBrowserHistory';
 export const History=createBrowserHistory();
 
 const unAuthenticatedPages=['/','/signup'];  //pages person cannot visit if he is authenticated
-const AuthenticatedPages=['/dashboard','/changePassword'];    //pages person can visit if he is authenticated
+const AuthenticatedPages=['/dashboard','/changepassword'];    //pages person can visit if he is authenticated
 
 export const onAuthChange=(isAuthenticated)=>{
   const pathname=History.location.pathname;
@@ -28,7 +28,7 @@ export const routes=(
         <Route exact path="/" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/dashboard" component={DashBoard}/>
-        <Route path="/changePassword" component={changePassword}/>
+        <Route path="/changepassword" component={changePassword}/>
         <Route path="/dashboard/:id" component={DashBoard}/>
         <Route path="*" component={NotFound}/>
     </Switch>

@@ -15,7 +15,7 @@ export const PrivateHeader =(props)=>{
         }}/>
         <h1 className="header__title">{props.title}</h1>
         <div className="header__rightalign">
-          <Link to="/changePassword" className="button button--link-text">change Password</Link>
+          <Link to="/changepassword" className="button button--link-text">change Password</Link>
           <button className="button button--link-text" onClick={()=>{
             props.handlelogout();
           }}>Logout</button>

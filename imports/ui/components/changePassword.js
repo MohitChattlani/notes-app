@@ -1,6 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import { Accounts } from 'meteor/accounts-base';
+import {Meteor} from 'meteor/meteor';
+import {History} from '/imports/routes/routes';
 
 export default class changePassword extends React.Component{
   constructor(props){
@@ -8,6 +10,12 @@ export default class changePassword extends React.Component{
     this.state={
       status:''
     };
+  }
+  componentWillMount(){
+    if (!Meteor.userId())
+    {
+      History.replace('/');
+    }
   }
   formsubmit(e){
     e.preventDefault();
