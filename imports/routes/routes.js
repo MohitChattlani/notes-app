@@ -4,6 +4,7 @@ import Signup from './../ui/components/Signup';
 import NotFound from './../ui/components/NotFound';
 import Login from './../ui/components/Login';
 import DashBoard from './../ui/components/DashBoard';
+import changePassword from './../ui/components/changePassword';
 import createBrowserHistory from 'history/createBrowserHistory';
 export const History=createBrowserHistory();
 
@@ -27,6 +28,7 @@ export const routes=(
         <Route exact path="/" component={Login} />
         <Route path="/signup" component={Signup} />
         <Route path="/dashboard" component={DashBoard}/>
+        <Route path="/changePassword" component={changePassword}/>
         <Route path="/dashboard/:id" component={DashBoard}/>
         <Route path="*" component={NotFound}/>
     </Switch>

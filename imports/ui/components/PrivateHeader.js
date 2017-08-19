@@ -3,7 +3,7 @@ import {Accounts} from 'meteor/accounts-base';
 import PropTypes from 'prop-types';
 import {createContainer} from 'meteor/react-meteor-data';
 import {Session} from 'meteor/session';
-
+import {Link} from 'react-router-dom';
 
 export const PrivateHeader =(props)=>{
   const navImageSrc=props.isNavOpen ? "/images/x.svg" : "/images/bars.svg";
@@ -14,9 +14,12 @@ export const PrivateHeader =(props)=>{
           Session.set('isNavOpen',!props.isNavOpen);
         }}/>
         <h1 className="header__title">{props.title}</h1>
-        <button className="button button--link-text" onClick={()=>{
-          props.handlelogout();
-        }}>Logout</button>
+        <div className="header__rightalign">
+          <Link to="/changePassword" className="button button--link-text">change Password</Link>
+          <button className="button button--link-text" onClick={()=>{
+            props.handlelogout();
+          }}>Logout</button>
+        </div>
       </div>
     </div>
   );

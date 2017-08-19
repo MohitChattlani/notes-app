@@ -9,7 +9,6 @@
   display: flex;
   height: $header-height;
   justify-content: space-between;
-  align-items: center;
   max-width: $site-max-width;
   margin: 0 auto;
   padding: $space;
@@ -22,7 +21,10 @@
     display: none;
   };
 }
-
+.header__rightalign
+{
+  justify-content: flex-end;
+}
 .header__title
 {
   margin: 0;
