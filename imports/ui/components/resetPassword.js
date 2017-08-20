@@ -12,7 +12,12 @@ export default class forgotPassword extends React.Component{
   }
   formsubmit(e){
     e.preventDefault();
-    let newPassword=this.refs.password.value;
+    let newPassword=this.refs.newPassword.value;
+    let verifyPassword=this.refs.verifyPassword.value;
+    if (newPassword !==verifyPassword) {
+      this.setState({status:"Passwords don't match"});
+      return;
+    }
     let token=Session.get('global_token');
     Accounts.resetPassword(token, newPassword, (err)=>{
       if (err) {
@@ -20,6 +25,7 @@ export default class forgotPassword extends React.Component{
       }
       else {
         this.setState({status:"Password reset"});
+        Session.set('global_token',undefined);
       }
     });
   }
@@ -30,7 +36,8 @@ export default class forgotPassword extends React.Component{
           <h1>Reset Password</h1>
           {this.state.status ? <p>{this.state.status}</p> :undefined }
           <form onSubmit={this.formsubmit.bind(this)} className="boxed-view__form">
-            <input type="password" ref="password" name="password" placeholder="New Password"/>
+            <input type="password" ref="newPassword" name="newPassword" placeholder="New Password" required/>
+            <input type="password" ref="verifyPassword" name="verifyPassword" placeholder="Verify password" required/>
             <button className="button button--space" type="Submit">Submit</button>
           </form>
         </div>

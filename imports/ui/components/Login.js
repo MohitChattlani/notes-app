@@ -29,6 +29,7 @@ export class Login extends React.Component {
     }
     if (global_token) {
       Session.set('global_token',global_token);
+      global_token=undefined;
       History.replace('/resetpassword');
     }
   }

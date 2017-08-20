@@ -47,7 +47,7 @@ export default class changePassword extends React.Component{
           <form onSubmit={this.formsubmit.bind(this)} className="boxed-view__form">
             <input type="password" ref="oldPassword" name="oldpassword" placeholder="Current password" required/>
             <input type="password" ref="newPassword" name="newpassword" placeholder="New password" required/>
-            <input type="password" ref="verifyPassword" name="confirmnewpassword" placeholder="Verify password" required/>
+            <input type="password" ref="verifyPassword" name="verifypassword" placeholder="Verify password" required/>
             <button className="button button--space" type="Submit">Save Changes</button>
           </form>
           <Link to="/">Go Back</Link>
