@@ -33,6 +33,7 @@ $boxed-view-bg: white;
 $boxed-view-border:$grey;
 //buttons
 $button-bg:$brand-primary;
+$button-light-bg: lighten($button-bg, 30%);
 $button-color:white;
 $button-pill-color:$brand-primary;
 $button--secondary-bg: $light-grey;

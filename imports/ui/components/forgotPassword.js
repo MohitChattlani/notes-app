@@ -6,7 +6,8 @@ export default class forgotPassword extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      status:''
+      status:'',
+      buttonclass:'button button--space'
     };
   }
   formsubmit(e){
@@ -21,7 +22,9 @@ export default class forgotPassword extends React.Component{
           this.setState({status:err.reason});
         }
         else {
-          this.setState({status:"Mail sent"});
+          this.setState({status:"Mail sent. Check your mail."});
+          this.setState({buttonclass:"button button--space saved"});
+          this.refs.submitbutton.innerHTML="Sent";
         }
     });
   }
@@ -33,7 +36,7 @@ export default class forgotPassword extends React.Component{
           {this.state.status ? <p>{this.state.status}</p> :undefined }
           <form onSubmit={this.formsubmit.bind(this)} className="boxed-view__form">
             <input type="email" ref="email" name="email" placeholder="Email"/>
-            <button className="button button--space" type="Submit">Submit</button>
+            <button className={this.state.buttonclass} ref="submitbutton" type="Submit">Submit</button>
           </form>
           <Link to="/">Go Back</Link>
         </div>
