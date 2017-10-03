@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Send Mail</title>
+        <style>
+                form {
+                    border: 3px solid #f1f1f1;
+                    width: 50%;
+                    margin-left: 25%;
+                    margin-top: 15vh;
+                }
+                
+                input[type=text], input[type=password] {
+                    width: 100%;
+                    padding: 12px 20px;
+                    margin: 8px 0;
+                    display: inline-block;
+                    border: 1px solid #ccc;
+                    box-sizing: border-box;
+                }
+                
+                button {
+                    background-color: #4CAF50;
+                    color: white;
+                    padding: 14px 20px;
+                    margin: 8px 0;
+                    border: none;
+                    cursor: pointer;
+                    width: 100%;
+                }
+                
+                button:hover {
+                    opacity: 0.8;
+                }
+                
+
+                
+                .container {
+                    padding: 16px;
+                }
+
+                
+
+                #titleMain{
+                    text-align: center;
+                    margin-top: 5vh;
+                }
+        </style>
+    </head>
+    <body>
+        <h1 id="titleMain"> Sign Up for Notes App</h1>
+        <form action="/confirmMail" method="post">
+            
+            <div class="container">
+                <label><b>Email</b></label>
+                <input type="text" placeholder="Enter Username" name="uname" required>
+            
+                <label><b>Set a password</b></label>
+                <input type="password" placeholder="Enter Password" name="psw" required>
+                    
+                <button type="submit">Login</button>
+                <input type="checkbox" checked="checked"> Remember me
+            </div>
+
+        </form>
+
+
+
+     </body>
+</html>
