@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 
-var kickbox = require('kickbox').client('test_2347971a4a28d7c0fcdc31afcff3c92dec31f4096dec1553bc7b2bb81b7cdc43').kickbox();
+var kickbox = require('kickbox').client('test_YOUR_API_KEY').kickbox();
 
 const port = process.env.PORT || 3000;
 
